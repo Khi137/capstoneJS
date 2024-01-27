@@ -21,6 +21,8 @@
   <!-- script
     ================================================== -->
   <script src="js/modernizr.js"></script>
+
+
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
@@ -155,7 +157,7 @@
     </div>
   </div>
 
-  <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
+  <header  id="header" class="site-header header-scrolled position-fixed text-black bg-light">
     <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="user.html">
@@ -209,7 +211,7 @@
                     <a href="shop.html" class="dropdown-item">Shop</a>
                   </li>
                   <li>
-                    <a href="cart.html" class="dropdown-item">Cart</a>
+                    <a class="dropdown-item cartMobile">Cart</a>
                   </li>
                   <li>
                     <a href="checkout.html" class="dropdown-item">Checkout</a>
@@ -243,21 +245,74 @@
                       </a>
                     </li>
                     <li>
-                      <a href="cart.html">
-                        <svg class="cart">
+                      <!-- <a href="cart.html"> -->
+                        <svg class="cart" > 
                           <use xlink:href="#cart"></use>
+                        
                         </svg>
-                      </a>
+
+                        <span class="icon__cart">
+                          
+                        </span>
+                      <!-- </a> -->
                     </li>
                   </ul>
                 </div>
               </li>
             </ul>
+  
+
+
           </div>
         </div>
+
+         
+
       </div>
+
+ 
     </nav>
+
   </header>
+
+
+
+                  <!-- CART -->
+                  <div class="shoppingCart" id="shoppingCart" >
+                        <div  onClick={handleHideModalOutside} class="shoppingCart__container">
+                      
+                          <div class="shoppingCart__close">&times;</div>
+                    <h1 class="shoppingCart__title">Your Cart</h1>
+
+                  <div class="shoppingCart__list">
+
+               
+
+                </div>
+
+                <div class="shoppingCart__reciept">
+
+                  <div class="shoppingCart__payment">
+                      No Item
+                  </div>
+
+
+
+                </div>
+                  
+
+                  
+
+                 </div>
+                
+                </div>
+                    
+                    
+                    <!-- CART -->
+
+
+
+
   <section id="billboard" class="position-relative overflow-hidden bg-light-blue">
     <div class="swiper main-swiper">
       <div class="swiper-wrapper">

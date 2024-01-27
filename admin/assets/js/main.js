@@ -58,22 +58,32 @@ function deleteProduct(id) {
 }
 function createProduct() {
   var product = getInfor();
-  console.log(product);
-  axios({
-    url: `https://65ae962a1dfbae409a7524ed.mockapi.io/api/capstone/product`,
-    method: "POST",
-    data: product,
-  })
-    .then(function (res) {
-      // gọi lại api lấy danh sách product sau khi thêm thành công
-      fetchListProduct();
-      closeModal();
-      showLoading();
-      console.log(res);
+  if (validate(product.name, "tbName")
+    && validate(product.price, "tbPrice")
+    && validate(product.screen, "tbScreen")
+    && validate(product.backCamera, "tbBackCamera")
+    && validate(product.frontCamera, "tbFrontCamera")
+    && validate(product.img, "tbImageProduct")
+    && validate(product.desc, "tbDesc")) {
+    console.log("yeah")
+    axios({
+      url: `https://65ae962a1dfbae409a7524ed.mockapi.io/api/capstone/product`,
+      method: "POST",
+      data: product,
     })
-    .catch(function (err) {
-      console.log(err);
-    });
+      .then(function (res) {
+        // gọi lại api lấy danh sách product sau khi thêm thành công
+        fetchListProduct();
+        closeModal();
+        showLoading();
+        console.log(res);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
+  console.log(product);
+
 }
 
 function editProduct(id) {
@@ -103,18 +113,27 @@ function editProduct(id) {
 
 function updateProduct() {
   var product = getInfor();
-  axios({
-    url: `https://65ae962a1dfbae409a7524ed.mockapi.io/api/capstone/product/${idEdit}`,
-    method: "PUT",
-    data: product,
-  })
-    .then(function (res) {
-      console.log(res);
-      fetchListProduct();
-      closeModal();
-      showLoading();
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
+  if (validate(product.name, "tbName")
+    && validate(product.price, "tbPrice")
+    && validate(product.screen, "tbScreen")
+    && validate(product.backCamera, "tbBackCamera")
+    && validate(product.frontCamera, "tbFrontCamera")
+    && validate(product.img, "tbImageProduct")
+    && validate(product.desc, "tbDesc")) {
+      axios({
+        url: `https://65ae962a1dfbae409a7524ed.mockapi.io/api/capstone/product/${idEdit}`,
+        method: "PUT",
+        data: product,
+      })
+      .then(function (res) {
+        console.log(res);
+        fetchListProduct();
+        closeModal();
+        showLoading();
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
+
 }
